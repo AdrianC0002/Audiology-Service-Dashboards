@@ -3,7 +3,7 @@ import pandas as pd
 import numpy as np
 from datetime import date, timedelta
 
-ROOT = Path(__file__).resolve().parents[1]
+ROOT = Path(__file__).resolve().parents[2]
 RAW = ROOT / "data" / "raw"
 RAW.mkdir(parents=True, exist_ok=True)
 

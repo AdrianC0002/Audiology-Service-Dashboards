@@ -87,3 +87,37 @@ The completed platform will include:
 - Cancellation and no-show prediction.
 - Helpdesk issue text classification.
 - Inventory demand forecasting.
+
+## Source Code Organisation
+
+The Python source code is divided into separate modules based on responsibility.
+
+### Data Module
+
+The `src/data/` package contains the project's data-engineering components:
+
+- `generate_synthetic_data.py` generates synthetic audiologist and appointment data for development and testing.
+- `build_database.py` loads the generated datasets into the local SQLite analytics database.
+
+Project paths are resolved relative to the repository root so that the project can be cloned and run on different computers without hard-coded local paths.
+
+### Routing Module
+
+The `src/routing/` package contains the geographic routing and optimisation components:
+
+- `routing_google.py` provides the foundation for road travel-time and road-distance calculations.
+- `route_optimizer.py` provides the initial Google OR-Tools route optimisation logic.
+
+The routing system will eventually support:
+
+- Audiologist home-to-first-appointment travel.
+- Appointment-to-appointment travel.
+- Final appointment-to-home travel.
+- Individual audiologist daily route optimisation.
+- Appointment service durations.
+- Appointment time windows.
+- Working-hour and break constraints.
+- Scheduling conflict detection.
+- Company-wide daily route optimisation across all available audiologists and appointments.
+- Comparison of current routes against recommended fastest routes.
+- Estimated driving-time and distance savings.
