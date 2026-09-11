@@ -32,3 +32,6 @@ desktop.ini
 # Temporary files
 *.tmp
 *.log
+.coverage
+htmlcov/
+coverage.xml

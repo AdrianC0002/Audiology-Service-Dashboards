@@ -121,3 +121,63 @@ The routing system will eventually support:
 - Company-wide daily route optimisation across all available audiologists and appointments.
 - Comparison of current routes against recommended fastest routes.
 - Estimated driving-time and distance savings.
+
+## Machine Learning and Testing Environment
+
+The project includes a dedicated machine learning and automated testing environment.
+
+### Machine Learning Stack
+
+The machine learning stack currently includes:
+
+- `scikit-learn` for preprocessing, baseline models, classification, regression and model evaluation.
+- `XGBoost` for advanced predictive modelling.
+- `joblib` for saving trained machine learning models.
+- `matplotlib` for model evaluation and analytical visualisations.
+
+Four machine learning components are planned.
+
+#### 1. Appointment Demand Forecasting
+
+Forecast future demand for hearing tests, fittings, services, wax-removal appointments and other appointment types.
+
+The model will support workforce capacity planning and geographic demand analysis.
+
+#### 2. Cancellation and No-Show Prediction
+
+Estimate the probability that an appointment will be cancelled or missed.
+
+Predictions are intended for operational planning and reminder support rather than clinical decision-making.
+
+#### 3. Helpdesk Issue Classification
+
+Use natural language processing to automatically classify synthetic helpdesk messages into categories such as:
+
+- Bluetooth and connectivity
+- Charging
+- Batteries
+- Mobile application issues
+- Streaming
+- Cleaning
+- Wax filters
+- Receivers
+- Feedback or whistling
+- Repairs
+- Appointment queries
+
+#### 4. Inventory Demand Forecasting
+
+Forecast future demand for frequently used audiology accessories and parts such as domes, wax filters, receivers, batteries and chargers.
+
+### Automated Testing
+
+The project uses `pytest` for automated testing and `pytest-cov` for code-coverage measurement.
+
+The initial automated test suite verifies that:
+
+- The Python testing environment is operational.
+- scikit-learn can be imported successfully.
+- XGBoost can be imported successfully.
+- Google OR-Tools can be imported successfully.
+
+Future tests will cover data validation, database operations, appointment rules, route optimisation, scheduling logic and machine learning preprocessing.
