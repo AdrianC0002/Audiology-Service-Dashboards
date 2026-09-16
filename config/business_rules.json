@@ -1,0 +1,46 @@
+{
+  "working_day": {
+    "start_time": "08:30",
+    "end_time": "17:30",
+    "lunch_break_minutes": 30,
+    "travel_buffer_minutes": 10
+  },
+
+  "appointment_durations_minutes": {
+    "SERVICE": 60,
+    "HEARING_TEST": 90,
+    "FITTING": 60,
+    "WAX_REMOVAL": 45
+  },
+
+  "appointment_settings": {
+    "default_arrival_window_minutes": 15,
+    "allow_home_visits": true,
+    "allow_clinic_appointments": true
+  },
+
+  "routing": {
+    "start_from_home": true,
+    "return_home": true,
+
+    "individual_route_optimisation": true,
+    "company_wide_daily_optimisation": true,
+
+    "allow_appointment_reassignment": true,
+
+    "respect_appointment_times": true,
+    "respect_audiologist_availability": true,
+    "respect_required_skills": true,
+
+    "minimise_total_drive_time": true,
+    "minimise_total_distance": true,
+    "avoid_overtime": true
+  },
+
+  "machine_learning": {
+    "appointment_demand_forecasting": true,
+    "cancellation_no_show_prediction": true,
+    "helpdesk_issue_classification": true,
+    "inventory_demand_forecasting": true
+  }
+}
