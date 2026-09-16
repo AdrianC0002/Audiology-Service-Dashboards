@@ -181,3 +181,80 @@ The initial automated test suite verifies that:
 - Google OR-Tools can be imported successfully.
 
 Future tests will cover data validation, database operations, appointment rules, route optimisation, scheduling logic and machine learning preprocessing.
+
+## Operational Business Rules
+
+Operational settings are stored centrally in `config/business_rules.json`.
+
+This allows appointment durations, working hours, travel buffers and route optimisation settings to be changed without modifying the core Python code.
+
+### Appointment Durations
+
+| Appointment Type | Duration |
+|---|---:|
+| Service | 60 minutes |
+| Hearing Test | 90 minutes |
+| Fitting | 60 minutes |
+| Wax Removal | 45 minutes (prototype assumption) |
+
+The wax-removal duration will be updated when the standard business appointment length is confirmed.
+
+### Working Day
+
+The current prototype assumes:
+
+- Working day starts at 08:30.
+- Working day ends at 17:30.
+- 30-minute lunch break.
+- 10-minute travel buffer between journeys.
+
+These settings are configurable.
+
+### Individual Route Optimisation
+
+The individual routing mode keeps appointments assigned to their existing audiologist and searches for the fastest feasible daily sequence.
+
+Each route starts from the audiologist's home location and returns to the home location after the final appointment.
+
+### Company-Wide Daily Route Optimisation
+
+The platform will also support a company-wide optimisation mode.
+
+For a selected day, the system will consider all available audiologists and all home appointments simultaneously.
+
+The optimisation engine will recommend:
+
+- Which audiologist should attend each appointment.
+- The recommended appointment sequence for each audiologist.
+- Departure and arrival times.
+- Total driving time.
+- Total driving distance.
+- Estimated return-home time.
+- Scheduling conflicts.
+- Overtime risk.
+- Estimated travel-time savings.
+- Estimated distance savings.
+
+The optimisation will respect:
+
+- Appointment times.
+- Appointment duration.
+- Audiologist availability.
+- Required audiologist skills.
+- Working-hour constraints.
+- Travel buffers.
+- Home starting locations.
+- Home return locations.
+
+The objective is to reduce unnecessary travel while maintaining feasible appointment schedules.
+
+### Machine Learning Configuration
+
+The project configuration enables four planned machine learning components:
+
+1. Appointment demand forecasting.
+2. Cancellation and no-show prediction.
+3. Helpdesk issue classification.
+4. Inventory demand forecasting.
+
+Automated tests verify that key business rules remain correctly configured.
